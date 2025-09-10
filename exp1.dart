@@ -1,43 +1,35 @@
 void main() {
+  print("Calculadora em dart");
 
+//entrada 1
   double num1 = 10;
-  double num2 = 2;
-  String operador = '/';
 
-  List<String> historico = [];
+//operação
+  print("Digite a operação (+, -, *, /): ");
+  String op = '+';
 
-  try {
-    double resultado;
+//Entrada 2
+  double num2 = 5;
 
-    switch (operador) {
-      case '+':
-        resultado = num1 + num2;
-        break;
-      case '-':
-        resultado = num1 - num2;
-        break;
-      case '*':
-        resultado = num1 * num2;
-        break;
-      case '/':
-        if (num2 == 0) {
-          throw Exception("Erro: Divisão por zero!");
-        }
-        resultado = num1 / num2;
-        break;
-      default:
-        throw Exception("Operador inválido!");
+  double resultado;
+
+  if (op == '+') {
+    resultado = num1 + num2;
+  } else if (op == '-') {
+    resultado = num1 - num2;
+  } else if (op == '*') {
+    resultado = num1 * num2;
+  } else if (op == '/') {
+    if (num2 == 0) {
+      print("Erro: divisão por zero!");
+      return;
     }
-
-    print("Resultado: $resultado");
-
-    historico.add("$num1 $operador $num2 = $resultado");
-
-    print("Histórico de operações:");
-    for (var h in historico) {
-      print(h);
-    }
-  } catch (e) {
-    print("Erro: $e");
+    resultado = num1 / num2;
+  } else {
+    print("Operação inválida!");
+    return;
   }
+
+  print("Resultado: $num1 $op $num2 = $resultado");
 }
+
